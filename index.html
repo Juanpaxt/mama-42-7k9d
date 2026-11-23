@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Para mamá · Feliz 42</title>
+  <meta name="description" content="Un regalito digital hecho con mucho amor para la mejor mamá del mundo.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Un regalo para mamá 💛">
+  <meta property="og:description" content="Ábrelo, es solo para ti. Feliz cumpleaños, mamá.">
+  <meta property="og:url" content="https://juanpaxt.github.io/mama-42-7k9d/">
+  <meta property="og:image" content="https://juanpaxt.github.io/mama-42-7k9d/assets/preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portada de cumpleaños con globos y el número 42">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E">
+  <script>
+    if (location.search.indexOf('qa') !== -1) {
+      window.__errors = [];
+      window.addEventListener('error', function (e) { window.__errors.push(e.message); });
+      window.addEventListener('unhandledrejection', function (e) { window.__errors.push(String(e.reason)); });
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="intro-open">
+
+  <!-- Portada / apertura del regalo -->
+  <div class="intro" id="intro">
+    <span class="intro-confetti intro-confetti--1" aria-hidden="true"></span>
+    <span class="intro-confetti intro-confetti--2" aria-hidden="true"></span>
+    <span class="intro-confetti intro-confetti--3" aria-hidden="true"></span>
+    <span class="intro-confetti intro-confetti--4" aria-hidden="true"></span>
+    <span class="intro-confetti intro-confetti--5" aria-hidden="true"></span>
+    <span class="intro-confetti intro-confetti--6" aria-hidden="true"></span>
+
+    <div class="intro__inner">
+      <p class="intro__kicker">Un regalito para ti</p>
+      <p class="intro__title">Para <span>mamá</span></p>
+
+      <button class="gift" id="openGift" type="button" aria-label="Abrir el regalo de cumpleaños">
+        <svg class="gift__svg" viewBox="0 0 220 220" aria-hidden="true">
+          <defs>
+            <linearGradient id="giftBox" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff8fae"/>
+              <stop offset="1" stop-color="#f74878"/>
+            </linearGradient>
+            <linearGradient id="giftLid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd76a"/>
+              <stop offset="1" stop-color="#ffb52e"/>
+            </linearGradient>
+            <linearGradient id="giftRibbon" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff6df"/>
+              <stop offset="1" stop-color="#ffe6ad"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="110" cy="199" rx="66" ry="9" fill="#6e2b50" opacity=".16"/>
+          <rect x="39" y="93" width="142" height="100" rx="12" fill="url(#giftBox)"/>
+          <rect x="30" y="70" width="160" height="40" rx="12" fill="url(#giftLid)"/>
+          <rect x="99" y="70" width="22" height="123" fill="url(#giftRibbon)"/>
+          <rect x="99" y="70" width="22" height="40" fill="#fff1c9" opacity=".55"/>
+          <path d="M110 72c-3-15-13-38-33-38-14 0-21 10-19 22 3 17 28 18 52 16Z" fill="#ffd76a" stroke="#e39a12" stroke-width="2"/>
+          <path d="M110 72c3-15 13-38 33-38 14 0 21 10 19 22-3 17-28 18-52 16Z" fill="#ffd76a" stroke="#e39a12" stroke-width="2"/>
+          <circle cx="110" cy="72" r="10" fill="#ffb52e" stroke="#e39a12" stroke-width="2"/>
+          <path d="M54 110h26M54 126h20" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+          <path d="M163 120l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#fff" opacity=".85"/>
+          <path d="M54 166l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5Z" fill="#fff" opacity=".7"/>
+        </svg>
+        <span class="gift__hint">Toca para abrir <span aria-hidden="true">✦</span></span>
+      </button>
+
+      <p class="intro__sub">Hecho con muchísimo amor</p>
+    </div>
+  </div>
+
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <!-- Control de música -->
+  <button class="music" id="musicBtn" type="button" aria-label="Silenciar música" aria-pressed="true">
+    <svg class="music__on" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="currentColor"/>
+      <circle cx="16.5" cy="16" r="2.5" fill="currentColor"/>
+    </svg>
+    <svg class="music__off" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="currentColor"/>
+      <circle cx="16.5" cy="16" r="2.5" fill="currentColor"/>
+      <path d="M3 3l18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="balloon balloon--1" aria-hidden="true">
+      <svg viewBox="0 0 80 190">
+        <path d="M40 4C19 4 6 19 6 39c0 23 16 38 30 44h8c14-6 30-21 30-44C74 19 61 4 40 4Z" fill="#ff5c8a"/>
+        <path d="M22 22c5-9 14-12 22-12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+        <path d="m36 83 4 8 4-8Z" fill="#e33f6d"/>
+        <path d="M40 91c0 25 12 47-4 74" fill="none" stroke="#3b2a4a" stroke-width="2" opacity=".35"/>
+      </svg>
+    </div>
+    <div class="balloon balloon--2" aria-hidden="true">
+      <svg viewBox="0 0 80 190">
+        <path d="M40 4C19 4 6 19 6 39c0 23 16 38 30 44h8c14-6 30-21 30-44C74 19 61 4 40 4Z" fill="#ffc93c"/>
+        <path d="M22 22c5-9 14-12 22-12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+        <path d="m36 83 4 8 4-8Z" fill="#e0a312"/>
+        <path d="M40 91c0 25 12 47-4 74" fill="none" stroke="#3b2a4a" stroke-width="2" opacity=".35"/>
+      </svg>
+    </div>
+    <div class="balloon balloon--3" aria-hidden="true">
+      <svg viewBox="0 0 80 190">
+        <path d="M40 4C19 4 6 19 6 39c0 23 16 38 30 44h8c14-6 30-21 30-44C74 19 61 4 40 4Z" fill="#2ec4b6"/>
+        <path d="M22 22c5-9 14-12 22-12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+        <path d="m36 83 4 8 4-8Z" fill="#1e9e92"/>
+        <path d="M40 91c0 25 12 47-4 74" fill="none" stroke="#3b2a4a" stroke-width="2" opacity=".35"/>
+      </svg>
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__kicker" data-rise style="--d:.05s">Hoy el mundo celebra</p>
+      <h1 class="hero__title" tabindex="-1" data-rise style="--d:.15s">
+        ¡Feliz cumpleaños,
+        <span class="script">mamá!</span>
+      </h1>
+
+      <div class="age" data-rise style="--d:.3s" aria-label="42 años">
+        <span class="age__num">42</span>
+        <span class="age__word">años</span>
+      </div>
+
+      <p class="hero__sub" data-rise style="--d:.42s">42 vueltas al sol de la persona que hace que todo sea más bonito.</p>
+
+      <a class="btn btn--primary" href="#recuerdo" data-rise style="--d:.55s">
+        Ver tu regalito
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15m0 0 6-6m-6 6-6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <p class="hero__scroll" data-rise style="--d:.7s">desliza <span aria-hidden="true">↓</span></p>
+    </div>
+
+    <svg class="hero__wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 44c180 42 340-18 540-2 200 16 330 54 520 30 150-19 260-45 380-30v48H0Z" fill="#fff8ef"/>
+    </svg>
+  </header>
+
+  <main>
+    <!-- Foto -->
+    <section class="section" id="recuerdo">
+      <div class="panel panel--paper">
+        <div class="section-head reveal">
+          <p class="eyebrow">Mi recuerdo favorito</p>
+          <h2>Tú y yo, en 2021</h2>
+          <p class="lead">De todas las fotos que existen, esta es mi favorita. No importa la calidad: importa todo lo que guarda.</p>
+        </div>
+
+        <figure class="polaroid reveal" id="polaroid">
+          <span class="tape tape--left" aria-hidden="true"></span>
+          <span class="tape tape--right" aria-hidden="true"></span>
+          <div class="photo-frame">
+            <div class="photo-placeholder" aria-hidden="true">
+              <svg class="photo-placeholder__heart" viewBox="0 0 120 110">
+                <path d="M60 98C36 82 10 64 10 39 10 21 23 10 38 10c10 0 18 5 22 13 4-8 12-13 22-13 15 0 28 11 28 29 0 25-26 43-50 59Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M34 44c3-9 10-14 19-14" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+              </svg>
+              <span class="photo-placeholder__year">2021</span>
+              <span class="photo-placeholder__text">nuestra foto</span>
+            </div>
+            <img id="foto" src="assets/foto.jpg" alt="Mi mamá y yo en 2021" width="800" height="1000">
+          </div>
+          <figcaption class="polaroid__caption">mamá y yo <span>·</span> 2021</figcaption>
+        </figure>
+
+        <p class="body-copy reveal">Es la única que tenemos por ahora, y por eso la cuido como un tesoro. Prometo que este año llenamos el álbum de fotos nuevas.</p>
+
+        <svg class="doodle doodle--daisy" viewBox="0 0 80 80" aria-hidden="true">
+          <g fill="none" stroke="#e5a93b" stroke-width="3">
+            <ellipse cx="40" cy="22" rx="8" ry="14" fill="#ffe08a"/>
+            <ellipse cx="40" cy="58" rx="8" ry="14" fill="#ffe08a"/>
+            <ellipse cx="22" cy="40" rx="14" ry="8" fill="#ffe08a"/>
+            <ellipse cx="58" cy="40" rx="14" ry="8" fill="#ffe08a"/>
+            <ellipse cx="27" cy="27" rx="8" ry="12" transform="rotate(-45 27 27)" fill="#ffe08a"/>
+            <ellipse cx="53" cy="53" rx="8" ry="12" transform="rotate(-45 53 53)" fill="#ffe08a"/>
+            <circle cx="40" cy="40" r="10" fill="#ffc93c"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Carta -->
+    <section class="section" id="carta">
+      <div class="panel panel--sun">
+        <div class="section-head reveal">
+          <p class="eyebrow">Una cartita para ti</p>
+          <h2>Lo que quiero decirte</h2>
+        </div>
+
+        <div class="letter reveal">
+          <span class="tape tape--top" aria-hidden="true"></span>
+          <p class="letter__hello">Querida mamá:</p>
+          <p>Hay personas que hacen el mundo más bonito solo por estar. Tú eres una de ellas. Y tengo la suerte enorme de que seas mi mamá.</p>
+          <p>Gracias por cada abrazo que arregló un día malo, por cada consejo que no pedí pero necesitaba, por esos platos que saben a casa y por quererme incluso en mis días difíciles.</p>
+          <p>Hoy cumples 42, pero lo que de verdad celebro es poder seguir teniéndote cerca. Ojalá la vida te devuelva multiplicado todo el amor que das.</p>
+          <p>Te quiero con todo mi corazón.</p>
+          <p class="letter__sign">Quien tiene la suerte<br>de llamarte mamá.</p>
+          <svg class="letter__sticker" viewBox="0 0 80 80" aria-hidden="true">
+            <path d="M40 70C24 58 8 47 8 31 8 20 16 13 25 13c6 0 11 3 15 8 4-5 9-8 15-8 9 0 17 7 17 18 0 16-16 27-32 39Z" fill="#ff5c8a"/>
+            <path d="M25 31c2-5 6-8 11-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cartitas -->
+    <section class="section" id="secretos">
+      <div class="panel panel--mint">
+        <div class="section-head reveal">
+          <p class="eyebrow">Tres cartitas</p>
+          <h2>Ábrelas cuando quieras</h2>
+          <p class="lead">Cada una guarda algo que quiero que sepas. Toca cada carta para descubrirlo.</p>
+        </div>
+
+        <div class="cards">
+          <button class="flip flip--pink reveal" type="button" aria-expanded="false">
+            <span class="flip__inner">
+              <span class="flip__face flip__front">
+                <span class="flip__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7.2 17.6 3 14.4 3 9.8 3 6.6 5.4 4.5 8 4.5c1.7 0 3.1.9 4 2.3.9-1.4 2.3-2.3 4-2.3 2.6 0 5 2.1 5 5.3 0 4.6-4.2 7.8-9 11.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flip__title">Lo que más admiro de ti</span>
+                <span class="flip__hint">toca para abrir ✦</span>
+              </span>
+              <span class="flip__face flip__back" aria-hidden="true">
+                <span class="flip__label">Lo que más admiro</span>
+                <span class="flip__text">Tu fuerza. Esa que sigue adelante incluso cuando nadie ve lo difícil que es. Y esa sonrisa tuya que hace que todo parezca posible.</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="flip flip--teal reveal" type="button" aria-expanded="false" style="--delay:.08s">
+            <span class="flip__inner">
+              <span class="flip__face flip__front">
+                <span class="flip__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flip__title">Lo que aprendí de ti</span>
+                <span class="flip__hint">toca para abrir ✦</span>
+              </span>
+              <span class="flip__face flip__back" aria-hidden="true">
+                <span class="flip__label">Lo que aprendí</span>
+                <span class="flip__text">Que el amor se demuestra en lo pequeño: una llamada, un plato de comida, estar cuando hace falta. Todo lo bonito que sé de querer, lo aprendí de ti.</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="flip flip--lilac reveal" type="button" aria-expanded="false" style="--delay:.16s">
+            <span class="flip__inner">
+              <span class="flip__face flip__front">
+                <span class="flip__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="flip__title">Lo que te deseo este año</span>
+                <span class="flip__hint">toca para abrir ✦</span>
+              </span>
+              <span class="flip__face flip__back" aria-hidden="true">
+                <span class="flip__label">Lo que te deseo</span>
+                <span class="flip__text">Calma. Salud. Risas hasta que te duela la panza. Tiempo para ti. Y muchos momentos bonitos para que los vivamos juntos.</span>
+              </span>
+            </span>
+          </button>
+        </div>
+
+        <p class="tiny-note reveal">Y todavía queda una sorpresa…</p>
+      </div>
+    </section>
+
+    <!-- Pastel -->
+    <section class="section" id="velas">
+      <div class="panel panel--sky">
+        <div class="section-head reveal">
+          <p class="eyebrow">Hora de soplar las velas</p>
+          <h2>Pide un deseo, mamita</h2>
+          <p class="lead">Cierra los ojos, pide algo bonito y sopla. Yo pongo el confeti.</p>
+        </div>
+
+        <div class="cake-scene reveal">
+          <div class="cake" id="cake">
+            <div class="candles">
+              <div class="candle">
+                <span class="candle__flame"><span class="candle__glow"></span></span>
+                <span class="candle__smoke"></span>
+                <span class="candle__body">4</span>
+              </div>
+              <div class="candle">
+                <span class="candle__flame"><span class="candle__glow"></span></span>
+                <span class="candle__smoke"></span>
+                <span class="candle__body">2</span>
+              </div>
+            </div>
+
+            <div class="tier tier--top">
+              <span class="frosting"></span>
+              <span class="sprinkle s1"></span>
+              <span class="sprinkle s2"></span>
+              <span class="sprinkle s3"></span>
+              <span class="sprinkle s4"></span>
+              <span class="sprinkle s5"></span>
+              <span class="sprinkle s6"></span>
+            </div>
+            <div class="tier tier--bottom">
+              <span class="frosting"></span>
+              <span class="sprinkle s7"></span>
+              <span class="sprinkle s8"></span>
+              <span class="sprinkle s9"></span>
+              <span class="sprinkle s10"></span>
+              <span class="sprinkle s11"></span>
+              <span class="sprinkle s12"></span>
+            </div>
+            <div class="cake__plate"></div>
+          </div>
+        </div>
+
+        <div class="cake-actions reveal">
+          <button class="btn btn--primary" id="blowBtn" type="button">Soplar las velas</button>
+          <div class="wish" id="wish" aria-hidden="true">
+            <p class="wish__title">¡Deseo pedido! <span aria-hidden="true">🎉</span></p>
+            <p class="wish__text">Que este año te devuelva todo el amor que das, y un poquito más.</p>
+          </div>
+          <p class="sr-only" id="wishLive" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cupones -->
+    <section class="section" id="cupones">
+      <div class="panel panel--butter">
+        <div class="section-head reveal">
+          <p class="eyebrow">Válidos para siempre</p>
+          <h2>Tus cupones de cumpleaños</h2>
+          <p class="lead">No tienen fecha de vencimiento. Solo hay que canjearlos conmigo.</p>
+        </div>
+
+        <ul class="coupons">
+          <li class="coupon reveal">
+            <span class="coupon__icon">🫂</span>
+            <span class="coupon__body">
+              <span class="coupon__title">Un abrazo de los que aprietan</span>
+              <span class="coupon__sub">Cuando lo necesites, sin preguntas.</span>
+            </span>
+            <span class="coupon__stamp" aria-hidden="true">∞</span>
+          </li>
+          <li class="coupon reveal" style="--delay:.05s">
+            <span class="coupon__icon">🎬</span>
+            <span class="coupon__body">
+              <span class="coupon__title">Una tarde de películas</span>
+              <span class="coupon__sub">Tú eliges la peli y el postre.</span>
+            </span>
+            <span class="coupon__stamp" aria-hidden="true">∞</span>
+          </li>
+          <li class="coupon reveal" style="--delay:.1s">
+            <span class="coupon__icon">🚗</span>
+            <span class="coupon__body">
+              <span class="coupon__title">Un paseo juntos</span>
+              <span class="coupon__sub">Sin rumbo y con buena música.</span>
+            </span>
+            <span class="coupon__stamp" aria-hidden="true">∞</span>
+          </li>
+          <li class="coupon reveal" style="--delay:.15s">
+            <span class="coupon__icon">📸</span>
+            <span class="coupon__body">
+              <span class="coupon__title">Una foto nueva</span>
+              <span class="coupon__sub">Para empezar a llenar el álbum.</span>
+            </span>
+            <span class="coupon__stamp" aria-hidden="true">∞</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section--closing" id="cierre">
+      <div class="closing reveal">
+        <svg class="closing__star closing__star--1" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 3l6.2 16.8L53 26l-16.8 6.2L30 49l-6.2-16.8L7 26l16.8-6.2Z" fill="#ffe08a" opacity=".9"/></svg>
+        <svg class="closing__star closing__star--2" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 3l6.2 16.8L53 26l-16.8 6.2L30 49l-6.2-16.8L7 26l16.8-6.2Z" fill="#fff" opacity=".55"/></svg>
+
+        <p class="eyebrow eyebrow--light">Y para terminar</p>
+        <h2 class="closing__title">Te quiero,<br><span class="script">mamá</span>.</h2>
+        <p class="closing__text">Gracias por ser mi casa, mi ejemplo y mi persona favorita en el mundo.</p>
+
+        <button class="btn btn--light" id="confettiBtn" type="button">
+          Otra lluvia de confeti
+          <span aria-hidden="true">✨</span>
+        </button>
+
+        <p class="closing__ps">P.D. Si algún día dudas de cuánto te quiero, vuelve a abrir esta página. Siempre va a estar aquí, esperándote.</p>
+
+        <p class="closing__sign">Con todo mi amor,<br>quien tiene la suerte de llamarte mamá.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Hecho con <span class="footer__heart" aria-label="amor">♥</span> para mamá · 42 años</p>
+  </footer>
+
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      body.intro-open { overflow: auto !important; }
+      .music { display: none !important; }
+      .reveal, .hero [data-rise] { opacity: 1 !important; transform: none !important; }
+      .hero [data-rise] { transition: none !important; }
+    </style>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
