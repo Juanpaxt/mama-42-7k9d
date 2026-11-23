@@ -5,7 +5,7 @@ Página de cumpleaños hecha a medida, pensada para abrirse desde el celular.
 ## Qué incluye
 
 - Portada con regalo para abrir y lluvia de confeti.
-- Foto tipo polaroid (con un espacio listo para la foto de 2021).
+- Foto de 2021 enmarcada como polaroid.
 - Carta escrita a mano.
 - Tres cartitas que se voltean al tocarlas.
 - Pastel con velas 4 y 2 para soplar y pedir un deseo.
@@ -24,9 +24,9 @@ Abre <http://localhost:8765>.
 
 Para revisar secciones sin la portada de apertura: `/?preview=1`.
 
-## Agregar la foto de 2021
+## Cambiar la foto de 2021
 
-1. Guarda la foto en la computadora.
+1. Guarda la foto nueva en la computadora.
 2. Ejecuta:
 
 ```bash
